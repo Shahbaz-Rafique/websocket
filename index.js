@@ -4,13 +4,13 @@ const path = require('path');
 const cors = require('cors');
 require('dotenv').config();
 
-const { createWebSocketServer } = require('./websocket'); // Update this path as needed
+const { createWebSocketServer } = require('./websocket'); 
 
 const app = express();
 
 app.use(cors());
-app.use(express.json()); // Parse JSON bodies
-app.use(express.urlencoded({ extended: false })); // Parse URL-encoded bodies
+app.use(express.json());
+app.use(express.urlencoded({ extended: false })); 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
@@ -26,7 +26,7 @@ const server = http.createServer(app);
 createWebSocketServer(server);
 
 // Start the HTTP server
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
